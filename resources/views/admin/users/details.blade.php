@@ -38,9 +38,9 @@
                                             <td> {{ $order->created_at }} </td>
                                             <td>
                                                 @if($order->status)
-                                                    <span class="label label-success">Confirmed</span>
+                                                    <span class="label label-success">Active</span>
                                                 @else
-                                                    <span class="label label-warning">Pending</span>
+                                                    <span class="label label-warning">Blocked</span>
                                                 @endif
                                             </td>
                                             </tr>

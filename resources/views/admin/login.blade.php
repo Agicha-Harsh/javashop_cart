@@ -53,10 +53,17 @@
                                 </ul>
                             </div>
                         @endif
+
+                        @if(session()->has('msg'))
+                            <div class="alert alert-success">
+                                {{ session()->get('msg') }}
+                            </div>
+                        @endif
                         
 
                         <form method="post" action="/admin/login">
-                            @include('admin.layouts.message')
+                            @csrf
+                            
                             <div class="form-group">
                                 <label for="email">Email:</label>
                                 <input type="email" name="email_id" id="email_id" placeholder="Email"
@@ -68,7 +75,7 @@
                                 <input type="password" name="password" id="password" placeholder="Password"
                                        class="form-control border-input">
                             </div>
-                            @csrf
+                            
                             <div class="form-group">
                                 <button class="btn btn-primary" type="submit">Sign In</button>
                             </div>

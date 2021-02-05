@@ -16,7 +16,7 @@ class CustomAuth
      */
     public function handle(Request $request, Closure $next)
     {
-        echo "Hi from MW";
+        
         return $next($request);
     }
 }

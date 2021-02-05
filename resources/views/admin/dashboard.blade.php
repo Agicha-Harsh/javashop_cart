@@ -2,11 +2,12 @@
 
 @section('page')
     Dashboard
+    @include('admin.layouts.message')
 @endsection
 
 @section('content')
     <div class="row">
-                    <div class="col-lg-3 col-sm-6">
+                    <div class="col-lg-3 col-sm-6">                        
                         <div class="card">
                             <div class="content">
                                 <div class="row">

@@ -51,7 +51,7 @@ class Handler extends ExceptionHandler
         $guard =Arr::get($exception->guards(),0);
         switch ($guard) {
             case 'admin':
-                return redirect('/admin');
+                return redirect('/admin/login');
                 break;
             
             default:
