@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
-        <a class="navbar-brand" href=" {{ url('/front') }} ">LaravelShop</a>
+        <a class="navbar-brand" href=" {{ url('/front') }} ">Shopping Cart</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
                 aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -24,6 +24,8 @@
                             <a class="dropdown-item " href="{{url('/front/user/login')}}">Sign In</a>
                             <a class="dropdown-item" href="{{url('/front/user/register')}}">Sign Up</a>
                         @else
+                            <a class="dropdown-item" href="{{  url('/front/user/profile') }}"><i class="fa fa-user"></i> Profile</a>
+                            <hr>
                             <a class="dropdown-item" href="{{url('/front/user/logout')}}">Logout</a>
                         @endif                        
                     </div>

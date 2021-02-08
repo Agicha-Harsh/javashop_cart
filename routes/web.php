@@ -71,6 +71,8 @@ Route::prefix('front')->group(function(){
 
 	Route::delete('cart/remove/{product}','App\Http\Controllers\Front\CartController@destroy')->name('cart.destroy');
 
+	Route::patch('cart/update/{product}','App\Http\Controllers\Front\CartController@update')->name('cart.update');
+
 	Route::post('cart/savelater/{product}','App\Http\Controllers\Front\CartController@savelater')->name('cart.savelater');
 
 	Route::delete('/savelater/destroy/{product}','App\Http\Controllers\Front\SaveLaterController@destroy')->name('savelater.destroy');

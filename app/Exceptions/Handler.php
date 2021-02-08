@@ -55,7 +55,7 @@ class Handler extends ExceptionHandler
                 break;
             
             default:
-                return dd('users');
+                return redirect('/front/user/login');
                 break;
         }
     }

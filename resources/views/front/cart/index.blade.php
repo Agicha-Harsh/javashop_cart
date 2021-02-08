@@ -16,6 +16,12 @@
             
            	 <div class="col-md-12">
             	@include('front.layouts.message')
+
+                @if ( session()->has('errors') )
+
+                        <div class="alert alert-warning">{{ session()->get('errors') }}</div>
+
+                @endif
                 
                 <table class="table">
                     
@@ -44,9 +50,12 @@
 	                            </td>
 	                            
 	                            <td>
-	                                <select name="" id="" class="form-control" style="width: 4.7em">
-	                                    <option value="">1</option>
-	                                    <option value="">2</option>
+	                                <select name="" id="" class="form-control quantity" style="width: 4.7em" data-id="{{$item->rowId}}">
+	                                    <option {{ $item->qty == 1 ? 'selected' : '' }}>1</option>
+	                                    <option {{ $item->qty == 2 ? 'selected' : '' }}>2</option>
+                                        <option {{ $item->qty == 3 ? 'selected' : '' }}>3</option>
+                                        <option {{ $item->qty == 4 ? 'selected' : '' }}>4</option>
+                                        <option {{ $item->qty == 5 ? 'selected' : '' }}>5</option>
 	                                </select>
 	                            </td>
 	                            
@@ -151,4 +160,28 @@
     @endif            
             </div>
         
+@endsection
+
+@section('script')
+    <script type="text/javascript" src=" {{ url('js/app.js') }} "></script>
+    <script type="text/javascript">
+        const className = document.querySelectorAll('.quantity');
+
+        Array.from(className).forEach(function(el){
+            el.addEventListener('change', function(){
+                const id = el.getAttribute('data-id');
+                axios.patch(`/front/cart/update/${id}`, {
+                    data: id,
+                    quantity: this.value
+                  })
+                  .then(function (response) {
+//                    console.log(response);
+                    location.reload();
+                  })
+                  .catch(function (error) {
+                    console.log(error);
+                  });
+            });
+        });
+    </script>
 @endsection

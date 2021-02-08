@@ -47,28 +47,45 @@
                                     <thead>
                                     <tr>
                                         <th>ID</th>
-                                        <th>User</th>
                                         <th>Product</th>
                                         <th>Quantity</th>
-                                        
+                                        <th>Total</th>
                                         <th>Status</th>
-                                        <th>Actions</th>
+                                        <th>Action</th>
                                     </tr>
                                     </thead>
                                     <tbody>
                                     @foreach($users->order as $order)    
                                         <tr>
-                                            <td> {{ $order->id }} </td>
-                                            <td>{{ $order->user->name }}</td>                       
+                                            <td>{{ $order->id }}</td>
                                             <td>
-                                            @foreach($order->products as $item)
-                                                {{ $item->name }}    
-                                            @endforeach
+                                                @foreach ($order->products as $item)
+                                                    <table class="table">
+                                                        <tr>
+                                                            <td>{{ $item->name }}</td>
+                                                        </tr>
+                                                    </table>
+                                                @endforeach
                                             </td>
+
                                             <td>
-                                            @foreach($order->orderitems as $item)
-                                                {{ $item->quantity }}    
-                                            @endforeach
+                                                @foreach ($order->orderItems as $item)
+                                                    <table class="table">
+                                                        <tr>
+                                                            <td>{{ $item->quantity }}</td>
+                                                        </tr>
+                                                    </table>
+                                                @endforeach
+                                            </td>
+
+                                            <td>
+                                                @foreach ($order->orderItems as $item)
+                                                    <table class="table">
+                                                        <tr>
+                                                            <td>${{ $item->price }}</td>
+                                                        </tr>
+                                                    </table>
+                                                @endforeach
                                             </td>                                            
                                             <td>
                                                 @if($order->status)

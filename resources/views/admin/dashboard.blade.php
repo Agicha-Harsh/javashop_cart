@@ -107,5 +107,5 @@
                             </div>
                         </div>
                     </div>
-                    <a href="{{ url('/admin/login') }}" class="btn btn-success">Login Page</a>
+                    
 @endsection
